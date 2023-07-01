@@ -20,3 +20,10 @@ def eintrag_details(request, eintrag_slug):
         'kommentare': kommentare
     }
     return render(request, 'app1/eintrag_detail.html', content)
+
+def kommentar_details(request, kommentar_slug):
+    ds = get_object_or_404(Kommentar, slug=kommentar_slug, aktiv=True)
+    content = {
+        'ds': ds,
+    }
+    return render(request, 'app1/kommentar_detail.html', content)

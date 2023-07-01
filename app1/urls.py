@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('', views.hello, name = 'hello'),
     path('eintrag/<str:eintrag_slug>', views.eintrag_details, name = 'eintrag'),
+    path('eintrag/kommentar/<str:kommentar_slug>', views.kommentar_details, name="kommentar"),
 ]

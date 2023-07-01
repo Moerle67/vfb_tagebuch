@@ -1,0 +1,9 @@
+{% extends 'app1/start.html' %}
+
+{% block h1 %}Detailansicht des Kommentar Nr: {{ds.id}}{% endblock h1 %}
+
+{% block inhalt %}
+    <h2>Ausgewählter Datensatz: {{ds}}</h2>
+    <h3>Inhalt</h3>
+<p>{{ds.kommentar}}</p>
+{% endblock inhalt %}

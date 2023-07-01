@@ -8,7 +8,7 @@
     <ol>
         Kommentare
         {% for kommentar in kommentare %}
-            <li>{{kommentar}}</li>
+            <li><a href="kommentar/{{kommentar.slug}}">{{kommentar}}</a></li>
         {% endfor %}
     </ol>    
 {% endblock inhalt %}
