@@ -14,9 +14,10 @@ class Eintrag(models.Model):
     class Meta:
         verbose_name = "Eintrag"
         verbose_name_plural = "Einträge"
+        ordering = ['-geaendert']
 
     def __str__(self):
-        return self.name
+        return f"{self.ueberschrift} / {self.slug} ({self.author})"
 
     def get_absolute_url(self):
         return reverse("Eintrag_detail", kwargs={"pk": self.pk})
