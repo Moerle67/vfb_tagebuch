@@ -1,0 +1,11 @@
+{% extends 'app1/start.html' %}
+
+{% block h1 %}{{ueber}}{% endblock h1 %}
+
+{% block inhalt %}
+<ul>
+{% for eintrag in inhalt %}
+    <li><a href="eintrag/{{eintrag.pk}}">{{eintrag}}</a></li>
+{% endfor %}
+</ul>
+{% endblock inhalt %}
