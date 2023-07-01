@@ -5,7 +5,7 @@
 {% block inhalt %}
 <ul>
 {% for eintrag in inhalt %}
-    <li><a href="eintrag/{{eintrag.pk}}">{{eintrag}}</a></li>
+    <li><a href="eintrag/{{eintrag.slug}}">{{eintrag}}</a></li>
 {% endfor %}
 </ul>
 {% endblock inhalt %}

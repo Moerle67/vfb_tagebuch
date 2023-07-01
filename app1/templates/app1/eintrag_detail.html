@@ -1,0 +1,14 @@
+{% extends 'app1/start.html' %}
+
+{% block h1 %}Detailansicht des Eintrages Nr: {{ds.id}}{% endblock h1 %}
+
+{% block inhalt %}
+    <h2>Ausgewählter Datensatz: {{ds}}</h2>
+    <hr />
+    <ol>
+        Kommentare
+        {% for kommentar in kommentare %}
+            <li>{{kommentar}}</li>
+        {% endfor %}
+    </ol>    
+{% endblock inhalt %}
