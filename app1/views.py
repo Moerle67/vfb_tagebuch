@@ -21,6 +21,9 @@ def eintrag_details(request, eintrag_slug):
     }
     return render(request, 'app1/eintrag_detail.html', content)
 
+def eintrag_neu(request):
+    return render(request, 'app1/eintrag_neu.html')
+
 def kommentar_details(request, kommentar_slug):
     ds = get_object_or_404(Kommentar, slug=kommentar_slug, aktiv=True)
     content = {
