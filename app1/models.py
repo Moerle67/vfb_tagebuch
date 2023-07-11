@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 # Create your models here.
 
 class Eintrag(models.Model):
     author = models.ForeignKey(User, verbose_name=("Verfasser"), on_delete=models.CASCADE)
     ueberschrift = models.CharField("Überschrift", max_length=50)
-    slug = models.SlugField("Schlagwort")
+    slug = models.SlugField("Schlagwort", unique=True, blank=True)
     text = models.TextField("Eintrag")
     erstellt = models.DateTimeField("Erstellt", auto_now=False, auto_now_add=True)
     geaendert = models.DateTimeField("Geändert", auto_now=True, auto_now_add=False)
@@ -16,6 +17,11 @@ class Eintrag(models.Model):
         verbose_name_plural = "Einträge"
         ordering = ['-geaendert']
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.ueberschrift)
+        super(Eintrag, self).save(*args, **kwargs)
+    
     def __str__(self):
         return f"{self.ueberschrift} / {self.slug} ({self.author})"
 

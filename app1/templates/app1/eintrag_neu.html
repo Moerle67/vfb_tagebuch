@@ -1,25 +1,31 @@
-{% extends 'app1/start.html' %}
+{% extends 'app1/start.html' %} 
 
+{% block h1 %}Neuer Eintrag{% endblock h1 %} 
 
-{% block h1 %}Neuer Eintrag{% endblock h1 %}
-
-{% block inhalt %}
+{%block inhalt %}
 <form>
-    <div class="mb-3">
-      <label for="ueber" class="form-label">Überschrift</label>
-      <input type="text" class="form-control" id="ueber" aria-describedby="ueberHelp">
-      <div id="ueberHelp" class="form-text">Bitte geben Sie die Überschrift ein</div>
+  <div class="mb-3">
+    <label for="ueber" class="form-label">Überschrift</label>
+    <input
+      type="text"
+      class="form-control"
+      id="ueber"
+      aria-describedby="ueberHelp"
+    />
+    <div id="ueberHelp" class="form-text">
+      Bitte geben Sie die Überschrift ein
     </div>
-    <div class="mb-3">
-      <label for="slug" class="form-label">SLUG</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Speichern</button>
-    </div>
-  </form>
+  </div>
+  <div class="mb-3">
+    <label for="slug" class="form-label">SLUG</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" />
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Speichern</button>
+  </div>
+</form>
 {% endblock inhalt %}
