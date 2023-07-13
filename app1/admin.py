@@ -3,7 +3,7 @@ from .models import *
 
 class EintragAdmin(admin.ModelAdmin):
   list_display = ("ueberschrift", "text", "author", "slug")
-  prepopulated_fields = {"slug": ("ueberschrift", "author")}
+#  prepopulated_fields = {"slug": ("ueberschrift", "author")}
 
 # Register your models here.
 admin.site.register(Eintrag, EintragAdmin)
