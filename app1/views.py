@@ -27,3 +27,6 @@ def kommentar_details(request, kommentar_slug):
         'ds': ds,
     }
     return render(request, 'app1/kommentar_detail.html', content)
+
+def form1(request):
+    return render(request, 'app1/formular1.html')

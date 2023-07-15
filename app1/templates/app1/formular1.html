@@ -1,0 +1,17 @@
+{% extends 'app1/start.html' %}
+
+{% block title %}Formular 1{% endblock title %}
+
+{% block h1 %}Mein erstes Formular{% endblock h1 %}
+
+{% block inhalt %}
+<form>
+    <label for="vname">Vorname:
+        <input type="text" id="vname" name="vname">
+    </label>
+    <label for="nname">Nachname:
+        <input type="text" id="nname" name="nname">
+    </label>
+    <button type="submit" name="action" value="0">Absenden</button>
+</form>
+{% endblock inhalt %}
