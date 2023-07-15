@@ -5,13 +5,34 @@
 {% block h1 %}Mein erstes Formular{% endblock h1 %}
 
 {% block inhalt %}
-<form>
-    <label for="vname">Vorname:
-        <input type="text" id="vname" name="vname">
-    </label>
-    <label for="nname">Nachname:
-        <input type="text" id="nname" name="nname">
-    </label>
-    <button type="submit" name="action" value="0">Absenden</button>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="vname" class="form-label">Vorname:</label>
+        <input type="text" class="form-control" id="vname" name="vname" aria-describedby="vnamehelp" value="{{vname}}">
+        <div id="vnamehelp" class="form-text">Geben Sie Ihren Vornamen ein</div> 
+    </div>
+    <div class="mb-3">
+        <label for="nname" class="form-label">Nachname:</label>
+        <input type="text" class="form-control" id="nname" name="nname" aria-describedby="nnamehelp" value="{{nname}}">
+        <div id="nnamehelp" class="form-text">Geben Sie Ihren Nachnamen ein</div> 
+    </div>
+    <div class="mb-3">
+        <label for="geschlecht" class="form-label">Geschlecht:</label>
+        <select class="form-select" id="geschlecht" name="geschlecht">
+            <option value="{{leer}}" default></option>
+            {% for element in auswahlg %}
+                <option value="{{element}}">{{element}}</option>
+            {% endfor %}
+          </select>
+        <div id="geschlechthelp" class="form-text">Geben Sie Ihr Geschlecht ein</div> 
+    </div>
+    <div class="mb-3">
+        <button type="submit" name="action" value="save" class="btn btn-success me-3">Absenden</button>
+        <button type="submit" name="action" value="delete" class="btn btn-danger">Löschen</button>
+    </div>
+    <div class="mb-3">
+        <h2>{{ausgabe}}</h2>
+    </div>
 </form>
 {% endblock inhalt %}
