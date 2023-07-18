@@ -27,3 +27,44 @@ def kommentar_details(request, kommentar_slug):
         'ds': ds,
     }
     return render(request, 'app1/kommentar_detail.html', content)
+
+def form1(request):
+    # print(f"Request: '{request.GET}'")
+    ausgabe = ""
+    fehler = False        
+    auswahlg = ("männlich", "weiblich", "divers", "sag ich nicht")
+    if 'vname' in request.POST:
+        # Rekursiver Aufruf
+
+        vorname = request.POST['vname']
+        nachname = request.POST['nname']
+        geschlecht  = request.POST['geschlecht']
+        if vorname == "":
+            ausgabe += "Vorname darf nicht leer sein! "
+            fehler = True
+        if nachname == "":
+            ausgabe += "Nachname darf nicht leer sein! "
+            fehler = True
+        if not fehler:
+            # Kein Fehler
+            if geschlecht == "männlich":
+                lieb = "lieber"
+            elif geschlecht == "weiblich":
+                lieb = "liebe"
+            elif geschlecht == "divers":
+                lieb = ""
+            else:
+                lieb = "liebe(r)"
+            ausgabe = f"Guten Morgen, {lieb} {vorname} {nachname}."
+    else:
+        # URL Aufruf
+        ausgabe = "Das ist der URL-Aufruf"
+        vorname = nachname = ""
+    content = {
+        'ausgabe': ausgabe,
+        'auswahlg': auswahlg,
+        'vname': vorname,
+        'nname': nachname,
+    }
+    print(ausgabe)
+    return render(request, 'app1/formular1.html', content)
