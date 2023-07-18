@@ -1,0 +1,19 @@
+{% extends 'app1/start.html' %}
+{% load static %}
+{% static "static/" as baseUrl %}
+{% block h1 %}Meine Bilder{% endblock h1 %}
+
+{% block inhalt %}
+{% for bild in bilderliste %}
+    <div class="row m-1 border border-2 ">
+        <div class="col-md-5">
+            <img src="{% static "" %}pics/{{bild.source}}" alt="{{bild.name}}" class="row_bild m-2">
+        </div>
+        <div class="col-md-5">
+            <p>Ursprung: {{bild.ursprung}}</p>
+            <p>Ort: {{bild.ort}}</p>
+            <p>Fotograph: {{bild.fotograf}}</p>
+        </div>
+    </div>
+{% endfor %}
+{% endblock inhalt %}

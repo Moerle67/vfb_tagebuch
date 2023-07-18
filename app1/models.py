@@ -41,3 +41,21 @@ class Kommentar(models.Model):
 
     def get_absolute_url(self):
         return reverse("Kommentar_detail", kwargs={"pk": self.pk})
+    
+class Bild(models.Model):
+    name = models.CharField("Bezeichnung", max_length=50)
+    source = models.CharField("Quelle", max_length=50)
+    ursprung = models.CharField("Ursprung", max_length=50)
+    ort = models.CharField("Ort der Aufnahme", max_length=50)
+    fotograf = models.CharField("Fotograph", max_length=50)
+
+    class Meta:
+        verbose_name = "Bild"
+        verbose_name_plural = "Bilder"
+
+    def __str__(self):
+        return f"{self.name} / {self.ort} ({self.fotograf})"
+
+    def get_absolute_url(self):
+        return reverse("Bild_detail", kwargs={"pk": self.pk})
+

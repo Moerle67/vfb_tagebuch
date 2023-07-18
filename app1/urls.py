@@ -23,4 +23,5 @@ urlpatterns = [
     path('eintrag/<str:eintrag_slug>', views.eintrag_details, name = 'eintrag'),
     path('eintrag/kommentar/<str:kommentar_slug>', views.kommentar_details, name="kommentar"),
     path('form1', views.form1, name="form1"),
+    path('bilder', views.bilder, name="bilder"),
 ]

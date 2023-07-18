@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from .models import *
-
+from django.contrib.auth.decorators import permission_required
 # Create your views here.
 
 def hello(request):
@@ -68,3 +68,12 @@ def form1(request):
     }
     print(ausgabe)
     return render(request, 'app1/formular1.html', content)
+
+@permission_required('app1.view_bild')
+def bilder(request):
+    bilderliste = Bild.objects.filter()
+    print(bilderliste)
+    content = {
+        'bilderliste': bilderliste,
+    }
+    return render(request, 'app1/bilder.html', content)
